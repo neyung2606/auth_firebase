@@ -1,0 +1,78 @@
+@layer components {
+    .c-scrollbar-wide {
+      overflow: auto;
+      --scrollbar-track: initial;
+      --scrollbar-thumb: initial;
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+      overflow: overlay;
+    }
+
+    .c-scrollbar-wide::-webkit-scrollbar-track {
+      background-color: var(--scrollbar-track);
+    }
+
+    .c-scrollbar-wide::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-thumb);
+    }
+
+    .c-scrollbar-wide {
+      scrollbar-width: auto;
+    }
+
+    .c-scrollbar-wide::-webkit-scrollbar {
+      width: 16px;
+      height: 16px;
+    }
+
+    .c-scrollbar-wide::-webkit-scrollbar-thumb {
+      border-radius: 9999px;
+    }
+
+    .c-scrollbar-wide {
+      --scrollbar-track: #d1d5db;
+      --scrollbar-thumb: #9ca3af;
+    }
+
+    .c-scrollbar-wide::-webkit-scrollbar-thumb:hover {
+      --scrollbar-thumb: #6b7280;
+    }
+
+    .c-scrollbar {
+      overflow: auto;
+      --scrollbar-track: initial;
+      --scrollbar-thumb: initial;
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+      overflow: overlay;
+    }
+
+    .c-scrollbar::-webkit-scrollbar-track {
+      background-color: var(--scrollbar-track);
+    }
+
+    .c-scrollbar::-webkit-scrollbar-thumb {
+      background-color: var(--scrollbar-thumb);
+    }
+
+    .c-scrollbar {
+      scrollbar-width: thin;
+    }
+
+    .c-scrollbar::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .c-scrollbar::-webkit-scrollbar-thumb {
+      border-radius: 9999px;
+    }
+
+    .c-scrollbar {
+      --scrollbar-track: #d1d5db;
+      --scrollbar-thumb: #9ca3af;
+    }
+
+    .c-scrollbar::-webkit-scrollbar-thumb:hover {
+      --scrollbar-thumb: #6b7280;
+    }
+
+  }

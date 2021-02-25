@@ -1,0 +1,28 @@
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  script: echo "There no test"
+
+build:
+  image: google/cloud-sdk:alpine
+  stage: build
+  before_script:
+    - echo "Start building image to gcloud"
+  script:
+    - /bin/bash .kubenetes/build.sh
+  only:
+    - main
+
+deploy:
+  image: google/cloud-sdk:latest
+  stage: deploy
+  before_script:
+    - echo "Start deploy to gcloud"
+  script:
+    - /bin/bash .kubenetes/deploy.sh
+  only:
+    - main

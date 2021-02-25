@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hasura
+    hasuraService: custom
+  name: hasura
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hasura
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hasura
+    spec:
+      containers:
+      - image: hasura/graphql-engine:v1.3.3
+        imagePullPolicy: IfNotPresent
+        name: hasura
+        env:
+        - name: HASURA_GRAPHQL_DATABASE_URL
+          value: postgres://tutor:tutor1810@10.107.96.3:5432/tutor_online
+        ## enable the console served by server
+        - name: HASURA_GRAPHQL_ENABLE_CONSOLE
+          value: "true"
+        ## enable debugging mode. It is recommended to disable this in production
+        - name: HASURA_GRAPHQL_DEV_MODE
+          value: "true"
+        - name: HASURA_GRAPHQL_ADMIN_SECRET
+          value: 'tutor-1810'
+        - name: HASURA_GRAPHQL_JWT_SECRET
+          value: '{"type":"RS256","jwk_url": "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com", "audience": "tutoronline-303614", "issuer": "https://securetoken.google.com/tutoronline-303614"}'
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
